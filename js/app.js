@@ -21,6 +21,7 @@ const loadProducts = () => {
             <img src="${image}" class="product-image p-2"></img>
             <div class="card-body">
                 <h5 class="card-title">${title.slice(0,30)}</h5>
+                <p class="card-text">Category: ${product.category}</p>
                 <p class="card-text">${rating}<i class="fas fa-star icon"></i> Total Rating: ${count}</p>
                 <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">Add to cart</button>
                 <button onclick="openModal(${product.id})" id="details-btn" class="btn btn-primary">Details</button>

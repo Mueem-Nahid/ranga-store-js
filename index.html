@@ -1,95 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FakeStore</title>
-  <link rel="stylesheet" href="./css/style.css" />
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop</title>
 
-  <!-- google Montserrat  font  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+    <!-- bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+     <!-- custome css -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google Montserrat  font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <header></header>
-  <main class="main">
-    <div class="search-field">
-      <div class="search-box">
-        <input id="input-field" class="search-field" type="text" />
-        <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
-          autocomplete="off" id="search-btn" onclick="loadProducts()">
-          Search
-        </button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-9 col-lg-9 col-sm-7">
-        <div id="all-products" class="">
-          <h1></h1>
-        </div>
-      </div>
-      <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
-        <div class="cart" id="my-cart">
-          <table class="table">
-            <thead>
-              <h1>My-Cart</h1>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Total Added-Products:</th>
-                <td>$ <span id="total-Products">0</span></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th>Price:</th>
-                <td>$ <span id="price">0</span></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th>Delivery-Charge:</th>
-                <td>$ <span id="delivery-charge">20</span></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th>Total-Tax:</th>
-                <td>$ <span id="total-tax">0</span></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row">Total</th>
-                <td colspan="2">$ <span id="total">0</span></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="parces text-center">
-            <button class="btn btn-primary text-center">Buy Now</button>
+    <header class="">
+        <nav class="navbar navbar-light">
+            <div class="container-fluid d-flex justify-content-center">
+              <a class="navbar-brand" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="48" height="48"
+                viewBox="0 0 48 48"
+                style=" fill:#000000;"><path fill="#9ccc65" d="M9,13C8,23.333,7,33.667,6,44c12,0,24,0,36,0c-1-10.333-2-20.667-3-31C29,13,19,13,9,13z"></path><circle cx="16" cy="18" r="2" fill="#1b5e20"></circle><circle cx="32" cy="18" r="2" fill="#1b5e20"></circle><path fill="#d32f2f" d="M24,21.06c-3.3,0-6,2.812-6,6.206c0,2.327,3.2,7.758,6,11.734c2.8-3.976,6-9.406,6-11.734	C30,23.872,27.3,21.06,24,21.06z"></path><circle cx="24" cy="27" r="4" fill="#b71c1c"></circle><circle cx="24" cy="27" r="2" fill="#ffebee"></circle><path fill="#388e3c" d="M32,19c-0.553,0-1-0.448-1-1v-6.588C31,7.876,27.859,5,24,5s-7,2.876-7,6.412V18c0,0.552-0.447,1-1,1	s-1-0.448-1-1v-6.588C15,6.773,19.037,3,24,3s9,3.773,9,8.412V18C33,18.552,32.553,19,32,19z"></path></svg>
+                <span class="text-success fw-bold p-1">Online Shop</span>
+              </a>
+              <div class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" id="input-field">
+                <button class="btn btn-outline-success" type="submit" id="search-btn" onclick="loadProducts()">Search</button>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <main>
+        <!-- cart -->
+        <section>
+            <div class="row">
+                <div class="col-md-9 col-lg-9 col-sm-7">
+                  <div id="all-products" class="row row-cols-1 row-cols-md-3 g-4">
+                  </div>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
+                  <div class="sticky-top shadow-sm" id="my-cart">
+                    <table class="table table-hover">
+                      <thead>
+                        <h2 class="text-center fw-bold text-success">My-Cart</h2>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th>Total Added-Products:</th>
+                          <td><span id="total-Products">0</span></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th>Price:</th>
+                          <td>$ <span id="price">0</span></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th>Delivery-Charge:</th>
+                          <td>$ <span id="delivery-charge">20</span></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th>Total-Tax:</th>
+                          <td>$ <span id="total-tax">0</span></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Total</th>
+                          <td colspan="2">$ <span id="total">0</span></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="text-center">
+                      <button class="btn btn-success text-center">Buy Now</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </section>
+    </main>
+
+    <!-- modal -->
+    <div id="myModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div>
+            <img id="modal-img" class="product-image p-2">
+          </div>
+          <div class="modal-header">
+            <h5 id="modal-title" class="modal-title"></h5>
+          </div>
+          <div class="modal-body">
+            <p id="modal-des"></p>
+            <p class="fw-bold">Price: <span id="modal-price"></span>$</p>
+          </div>
+          <div class="modal-footer">
+            <button id="modal-close" onclick="closeModal()" type="button" class="btn btn-secondary">Close</button>
           </div>
         </div>
       </div>
     </div>
-  </main>
-  <footer></footer>
 
-  <!-- add javascript  file  -->
-  <script src="./js/app.js"></script>
+
+    <!-- bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- add javascript  file  -->
+    <script src="./js/app.js"></script>
+
 </body>
-
 </html>
